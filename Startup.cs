@@ -35,6 +35,14 @@ namespace mvc_cookie_auth
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            //https://stackoverflow.com/a/45312462/12886084
+            app.Use((context, next) =>
+            {
+                context.Request.PathBase = "/bookstore";
+                return next();
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
