@@ -114,7 +114,7 @@ namespace mvc_cookie_auth.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Index", "Home");
+            return Redirect("/");
         }
 
         [HttpPost]
@@ -165,8 +165,7 @@ namespace mvc_cookie_auth.Controllers
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> Index()
         {
-            var accounts = await _context.Account.ToListAsync();
-            return View(accounts);
+            return View(await _context.Account.ToListAsync());
         }
 
         // GET: Account/Create

@@ -54,7 +54,7 @@ namespace mvc_cookie_auth
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "/bookstore/{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
