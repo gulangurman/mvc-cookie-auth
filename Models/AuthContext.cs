@@ -18,6 +18,7 @@ namespace mvc_cookie_auth.Models
             base.OnModelCreating(builder);
             builder.Entity<Account>(e =>
             {
+                e.ToTable("account"); //important for MySql
                 e.HasKey(e => e.Id);
                 e.Property(e => e.Email).IsRequired();
                 e.Property(e => e.Password).IsRequired();
