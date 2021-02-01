@@ -114,7 +114,7 @@ namespace mvc_cookie_auth.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return Redirect("/");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
